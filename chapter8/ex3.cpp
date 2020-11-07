@@ -32,6 +32,10 @@ void print(const string& label, const vector<int>& integers) {
 	 v.push_back(x);
 	 v.push_back(y);
 	 for (int i = 0; i < n; i++) {
+		 if (v.end()[-1] < v.end()[-2]) {
+			 cout << v.end()[-1] << "int " << v.end()[-2] << '\n';
+			 error("integer overflow");
+		 }
 		 int num = v.end()[-2] + v.end()[-1];
 		 v.push_back(num);
 	 }
@@ -41,7 +45,7 @@ void print(const string& label, const vector<int>& integers) {
  try {
 	 string label{ "proto" };
 	 vector<int> test;
-	 fibonacci(1, 1, test, 4);
+	 fibonacci(1, 1, test, 200);
 	 print(label, test);
 }
 
